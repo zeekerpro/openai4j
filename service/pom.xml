@@ -54,6 +54,12 @@
             <artifactId>jackson-databind</artifactId>
             <version>2.14.2</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-library</artifactId>
+            <version>2.12.18</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -65,7 +71,28 @@
                 <configuration>
                     <artifactSet>
                         <includes>
-                            <include>*:*</include>
+
+                            <!-- 核心项目模块 -->
+                            <include>${project.groupId}:api</include>
+                            <include>${project.groupId}:client</include>
+                            <!-- JSON 处理 -->
+                            <include>com.fasterxml.jackson.*:*</include>
+
+                            <include>com.squareup.retrofit2:*</include>
+                            <include>com.squareup.okhttp3:*</include>
+
+                            <!-- RxJava2 -->
+                            <include>io.reactivex.rxjava2:*</include>
+                            <include>org.reactivestreams:*</include>
+
+                            <!-- JsonSchema -->
+                            <include>com.kjetland:mbknor-jackson-jsonschema_2.12</include>
+                            <include>com.github.fge:*</include>
+                            <include>javax.validation:*</include>
+
+                            <!-- Scala -->
+                            <include>org.scala-lang:scala-library</include>
+                            <include>org.scala-lang:scala-reflect</include>
                         </includes>
                         <excludes>
                             <!-- 排除测试依赖 -->
@@ -80,6 +107,11 @@
                         <relocation>
                             <pattern>com.fasterxml.jackson</pattern>
                             <shadedPattern>shaded.com.fasterxml.jackson</shadedPattern>
+                        </relocation>
+                        <!-- 可以考虑也重定位 jsonschema 相关的包 -->
+                        <relocation>
+                            <pattern>com.kjetland.jackson</pattern>
+                            <shadedPattern>shaded.com.kjetland.jackson</shadedPattern>
                         </relocation>
                     </relocations>
                     <transformers>
