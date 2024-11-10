@@ -67,6 +67,14 @@
                         <includes>
                             <include>*:*</include>
                         </includes>
+                        <excludes>
+                            <!-- 排除测试依赖 -->
+                            <exclude>*:*:*:test</exclude>
+                            <!-- 排除可选依赖 -->
+                            <exclude>*:*:*:optional</exclude>
+                            <!-- 排除 provided 作用域的依赖 -->
+                            <exclude>*:*:*:provided</exclude>
+                        </excludes>
                     </artifactSet>
                     <relocations>
                         <relocation>
