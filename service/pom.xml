@@ -71,28 +71,29 @@
                 <configuration>
                     <artifactSet>
                         <includes>
-
-                            <!-- 核心项目模块 -->
+                            <!-- 1. 核心业务模块 -->
                             <include>${project.groupId}:api</include>
                             <include>${project.groupId}:client</include>
-                            <!-- JSON 处理 -->
-                            <include>com.fasterxml.jackson.*:*</include>
 
-                            <include>com.squareup.retrofit2:*</include>
-                            <include>com.squareup.okhttp3:*</include>
+                            <!-- 2. JSON处理 -->
+                            <include>com.fasterxml.jackson.core:jackson-databind</include>
+                            <include>com.fasterxml.jackson.core:jackson-annotations</include>
+                            <include>com.fasterxml.jackson.core:jackson-core</include>
 
-                            <!-- RxJava2 -->
-                            <include>io.reactivex.rxjava2:*</include>
-                            <include>org.reactivestreams:*</include>
+                            <!-- 3. HTTP客户端相关 -->
+                            <include>com.squareup.retrofit2:retrofit</include>
+                            <include>com.squareup.retrofit2:adapter-rxjava2</include>
+                            <include>com.squareup.retrofit2:converter-jackson</include>
+                            <include>com.squareup.okhttp3:okhttp</include>
 
-                            <!-- JsonSchema -->
+                            <!-- 4. 响应式编程 -->
+                            <include>io.reactivex.rxjava2:rxjava</include>
+                            <include>org.reactivestreams:reactive-streams</include>
+
+                            <!-- 5. JSON Schema  -->
                             <include>com.kjetland:mbknor-jackson-jsonschema_2.12</include>
-                            <!-- <include>com.github.fge:*</include> -->
-                            <!-- <include>javax.validation:*</include> -->
-
-                            <!-- Scala -->
                             <include>org.scala-lang:scala-library</include>
-                            <!-- <include>org.scala-lang:scala-reflect</include> -->
+
                         </includes>
                         <excludes>
                             <!-- 排除测试依赖 -->
