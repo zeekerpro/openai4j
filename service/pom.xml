@@ -87,12 +87,12 @@
 
                             <!-- JsonSchema -->
                             <include>com.kjetland:mbknor-jackson-jsonschema_2.12</include>
-                            <include>com.github.fge:*</include>
-                            <include>javax.validation:*</include>
+                            <!-- <include>com.github.fge:*</include> -->
+                            <!-- <include>javax.validation:*</include> -->
 
                             <!-- Scala -->
                             <include>org.scala-lang:scala-library</include>
-                            <include>org.scala-lang:scala-reflect</include>
+                            <!-- <include>org.scala-lang:scala-reflect</include> -->
                         </includes>
                         <excludes>
                             <!-- 排除测试依赖 -->
