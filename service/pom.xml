@@ -110,10 +110,29 @@
                             <pattern>com.fasterxml.jackson</pattern>
                             <shadedPattern>shaded.com.fasterxml.jackson</shadedPattern>
                         </relocation>
-                        <!-- 可以考虑也重定位 jsonschema 相关的包 -->
+                        <relocation>
+                            <pattern>retrofit2</pattern>
+                            <shadedPattern>shaded.retrofit2</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>okhttp3</pattern>
+                            <shadedPattern>shaded.okhttp3</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>io.reactivex</pattern>
+                            <shadedPattern>shaded.io.reactivex</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>org.reactivestreams</pattern>
+                            <shadedPattern>shaded.org.reactivestreams</shadedPattern>
+                        </relocation>
                         <relocation>
                             <pattern>com.kjetland.jackson</pattern>
                             <shadedPattern>shaded.com.kjetland.jackson</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>scala</pattern>
+                            <shadedPattern>shaded.scala</shadedPattern>
                         </relocation>
                     </relocations>
                     <transformers>
