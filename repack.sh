@@ -38,13 +38,21 @@ TARGET_DIR=~/Public/workspace/wintouch/dev_wintouch8/WebContent/WEB-INF/lib
 JARFILE="openai4j-service-${VERSION}-fat.jar"
 
 # 复制文件到目标目录
-echo -e "\n${YELLOW}部署到Wintouch开发环境...${NC}"
+echo -e "\n${YELLOW}准备部署到Wintouch开发环境...${NC}"
 if [ -f "service/target/${JARFILE}" ]; then
-    cp "service/target/${JARFILE}" "${TARGET_DIR}"
-    echo -e "${GREEN}部署成功：${JARFILE}${NC}"
+    echo -e "是否确认将 ${JARFILE} 复制到 ${TARGET_DIR}? (y/n)"
+    read -r confirm
+    if [[ $confirm =~ ^[Yy]$ ]]; then
+        cp "service/target/${JARFILE}" "${TARGET_DIR}"
+        echo -e "${GREEN}部署成功：${JARFILE}${NC}"
+        echo -e "\n${GREEN}构建和部署完成！${NC}"
+    else
+        echo -e "${YELLOW}部署已取消${NC}"
+        echo -e "\n${GREEN}构建完成，部署已取消！${NC}"
+        exit 0
+    fi
 else
     echo -e "${RED}错误：找不到构建产物 ${JARFILE}${NC}"
+    echo -e "\n${RED}构建完成，但部署失败！${NC}"
     exit 1
 fi
-
-echo -e "\n${GREEN}构建和部署完成！${NC}"
